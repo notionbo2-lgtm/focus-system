@@ -612,6 +612,13 @@
 </footer>
 
 <script>
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
   function showTab(index) {
     document.querySelectorAll('.screenshot-panel').forEach((p, i) => p.classList.toggle('active', i === index));
     document.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === index));
