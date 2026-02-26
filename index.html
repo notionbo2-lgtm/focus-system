@@ -292,6 +292,47 @@
   footer a { color: var(--terracotta-light); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
 
+  /* SCREENSHOTS */
+  .screenshots-section { background: var(--warm-white); }
+  .screenshots-tabs {
+    display: flex; gap: 0.75rem; margin: 2.5rem 0 2rem; flex-wrap: wrap;
+  }
+  .tab-btn {
+    padding: 0.55rem 1.25rem; border-radius: 100px;
+    border: 1.5px solid var(--sand); background: transparent;
+    font-family: 'DM Sans', sans-serif; font-size: 0.875rem;
+    color: var(--text-mid); cursor: pointer; transition: all 0.2s;
+  }
+  .tab-btn.active, .tab-btn:hover {
+    background: var(--terracotta); border-color: var(--terracotta);
+    color: white;
+  }
+  .screenshot-panel { display: none; }
+  .screenshot-panel.active { display: block; }
+  .screenshot-wrap {
+    border-radius: 20px; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(61,43,31,0.15);
+    border: 1px solid var(--sand);
+    position: relative;
+  }
+  .screenshot-wrap img {
+    width: 100%; display: block;
+  }
+  /* PLACEHOLDER STYLE — remove once real images are in */
+  .screenshot-placeholder {
+    width: 100%; aspect-ratio: 16/9;
+    background: var(--sand);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 0.75rem; color: var(--text-light);
+    font-size: 0.9rem;
+  }
+  .screenshot-placeholder svg { opacity: 0.4; }
+  .screenshot-caption {
+    margin-top: 1.25rem; font-size: 0.875rem; color: var(--text-light);
+    text-align: center; font-style: italic;
+  }
+
   /* DIVIDER */
   .wavy-divider {
     width: 80px; height: 3px; border-radius: 2px;
@@ -347,6 +388,61 @@
   <div class="proof-item"><span class="proof-icon">✓</span> Reuse every 12 weeks</div>
   <div class="proof-item"><span class="proof-icon">✓</span> Set up in one day</div>
 </div>
+
+<!-- SCREENSHOTS -->
+<section class="screenshots-section" id="preview">
+  <div class="container">
+    <p class="section-label">Inside the system</p>
+    <div class="wavy-divider"></div>
+    <h2>See exactly what<br>you're getting.</h2>
+    <p class="section-lead">A clean, focused Notion workspace — not a cluttered dashboard. Everything you need, nothing you don't.</p>
+
+    <div class="screenshots-tabs">
+      <button class="tab-btn active" onclick="showTab(0)">🏠 Home Dashboard</button>
+      <button class="tab-btn" onclick="showTab(1)">📋 Weekly Planner</button>
+      <button class="tab-btn" onclick="showTab(2)">🔁 Weekly Review</button>
+    </div>
+
+    <!-- TAB 1: Home Dashboard -->
+    <div class="screenshot-panel active" id="tab-0">
+      <div class="screenshot-wrap">
+        <!-- SWAP THIS: replace the placeholder div below with:
+             <img src="Asd.jpg" alt="Home Dashboard" />
+             (use the filename you upload to GitHub) -->
+        <div class="screenshot-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+          <span>📸 Replace with <strong>Asd.jpg</strong></span>
+        </div>
+      </div>
+      <p class="screenshot-caption">Home page — your daily focus, tomorrow's tasks, week countdown, and progress diagram in one view.</p>
+    </div>
+
+    <!-- TAB 2: Weekly Planner -->
+    <div class="screenshot-panel" id="tab-1">
+      <div class="screenshot-wrap">
+        <!-- SWAP THIS: replace with <img src="123.jpg" alt="Weekly Planner" /> -->
+        <div class="screenshot-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+          <span>📸 Replace with <strong>123.jpg</strong></span>
+        </div>
+      </div>
+      <p class="screenshot-caption">Weekly planner — break your goal into focused tasks across the week, organised by priority.</p>
+    </div>
+
+    <!-- TAB 3: Weekly Review -->
+    <div class="screenshot-panel" id="tab-2">
+      <div class="screenshot-wrap">
+        <!-- SWAP THIS: replace with <img src="455w.jpg" alt="Weekly Review" /> -->
+        <div class="screenshot-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+          <span>📸 Replace with <strong>455w.jpg</strong></span>
+        </div>
+      </div>
+      <p class="screenshot-caption">Weekly review — reflect on what moved forward, what didn't, and adjust before the next week begins.</p>
+    </div>
+
+  </div>
+</section>
 
 <!-- FEATURES -->
 <section id="features">
@@ -529,4 +625,10 @@
   <p>Made by Losamma · <a href="/cdn-cgi/l/email-protection#94f8fbe7f5f9f9f5edd4f3f9f5fdf8baf7fbf9"><span class="__cf_email__" data-cfemail="305c5f43515d5d514970575d51595c1e535f5d">[email&#160;protected]</span></a> · <a href="https://losamma.gumroad.com/l/12-week-focus-system" target="_blank">Buy on Gumroad</a></p>
 </footer>
 
+<script>
+  function showTab(index) {
+    document.querySelectorAll('.screenshot-panel').forEach((p, i) => p.classList.toggle('active', i === index));
+    document.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === index));
+  }
+</script>
 <script data-cfasync="false" s
